@@ -4,10 +4,20 @@
  * @Author: 王远昭
  * @Date: 2022-11-10 21:37:10
  * @LastEditors: 王远昭
- * @LastEditTime: 2022-11-11 21:55:20
+ * @LastEditTime: 2022-11-11 23:51:16
  */
 
-const photo_per_page = 12
+const photo_per_page = 12;
+let CurrentPage = 1; // 当前页数
+//全局变量total:照片总数
+let total = 0
+$.ajax({
+  url: "assets/data/bing.json",
+  async: false,
+  success:(d)=>{
+    total = d.length
+  }
+})
 function renderDataByCurrentPage(CurrentPage) {
   var currentData = [];
   $.ajax({
@@ -36,6 +46,9 @@ function generateNode(tempalte) {
 
 function renderGallery(data) {
   const parentNode = document.getElementById("gallery");
+  //渲染前先清除原有样式
+  $("#gallery").empty()
+  
   var tempalte = "";
   var temp = "";
   let d = data;
@@ -104,9 +117,9 @@ function bubble() {
   let offset = 50; //气泡偏移
   let bArray = [];
   let sArray = [0.3, 0.4, 0.5, 0.7, 0.8];
-  let color = '#0192bd'
+  let color = "#0192bd";
   for (var i = 0; i < bubbles.clientWidth + offset; i++) {
-    bArray.push(i - offset/2);
+    bArray.push(i - offset / 2);
   }
   function randomValue(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -141,36 +154,85 @@ function bubble() {
   }, 100);
 }
 
-function wordsPerDay(){
+function wordsPerDay() {
   var Node = document.getElementById("words-per-day");
-  
-    $.ajax({
-      url: "https://apis.jxcxin.cn/api/lishi?format=json",
-      type: "GET",
-      dataType: "json",
-      success:function(data){
-        let index = 1
-        Node.innerText = data.content[0]
-        setInterval(()=>{
-          Node.innerText = data.content[index]
-          if(index!=data.content.length) index++;
-          else index = 0
-        },3500)
-      }
-    });
+  $.ajax({
+    url: "https://apis.jxcxin.cn/api/lishi?format=json",
+    type: "GET",
+    dataType: "json",
+    success: function (data) {
+      let index = 1;
+      Node.innerText = data.content[0];
+      setInterval(() => {
+        Node.innerText = data.content[index];
+        if (index != data.content.length) index++;
+        else index = 0;
+      }, 3500);
+    },
+  });
 }
 // 页数改变事件
-function handlePageChange(){
-  
+function handlePageChange() {
+  var CurrentPage = parseInt($(".active").text());
+  let TotalPage = total / photo_per_page;
+  alert(TotalPage)
+  function changeBtn(CurrentPage) {
+    //active类居中
+    if (CurrentPage >= 2 && CurrentPage <= TotalPage - 1) {
+      $("#first-btn").removeClass("active");
+      $("#second-btn").addClass("active");
+      $("#third-btn").removeClass("active");
+      $("#first-btn").html(`<a class="page-link">`+(CurrentPage - 1).toString()+`</a>`);
+      $("#second-btn").html(`<a class="page-link">`+CurrentPage                 +`</a>`);
+      $("#third-btn").html(`<a class="page-link">`+(CurrentPage + 1).toString()+`</a>`);
+    }
+    //active为第一页
+    else if (CurrentPage == 1) {
+      $("#first-btn").html(`<a class="page-link">1</a>`);
+      $("#second-btn").html(`<a class="page-link">2</a>`);
+      $("#third-btn").html(`<a class="page-link">3</a>`);
+      $("#second-btn").removeClass("active");
+      $("#first-btn").addClass("active");
+    }
+    //active为最后页
+    else {
+      $("#first-btn").html(`<a class="page-link">`+(CurrentPage - 2).toString()+`</a>`);
+      $("#second-btn").html(`<a class="page-link">`+(CurrentPage - 1).toString()+`</a>`);
+      $("#third-btn").html(`<a class="page-link">`+CurrentPage +`</a>`);
+      $("#second-btn").removeClass("active");
+      $("#third-btn").addClass("active");
+    }
+  }
+  //点击前一页
+  $("#pre-btn").click(() => {
+    if (CurrentPage == 1) {
+      //第一页,不能再前啦
+      alert("当下已经最好,无需留恋过去");
+      return;
+    }
+    CurrentPage--;
+    changeBtn(CurrentPage);
+    renderDataByCurrentPage(CurrentPage);
+  });
+  //点击后一页
+  $("#next-btn").click(() => {
+    if (CurrentPage == TotalPage) {
+      //最后一页,不能再后啦
+      alert("当下已经最好,无需憧憬未来");
+      return;
+    }
+    CurrentPage++;
+    changeBtn(CurrentPage);
+    renderDataByCurrentPage(CurrentPage);
+  });
+  //点击第一个按钮
 }
 //函数入口，功能执行
-function main(){
-  const photo_per_page = 12; // 3列 * 4行
-  let CurrentPage = 1 // 当前页数
-  renderDataByCurrentPage(CurrentPage,photo_per_page);
+function main() {
+  renderDataByCurrentPage(CurrentPage);
   bubble();
-  Media()
-  // handlePageChange();
-  wordsPerDay()
+  Media();
+  handlePageChange();
+  wordsPerDay();
 }
-main()
+main();
