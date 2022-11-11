@@ -1,0 +1,107 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: ��Զ��
+ * @Date: 2022-10-18 17:27:51
+ * @LastEditors: 王远昭
+ * @LastEditTime: 2022-10-20 14:07:58
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson1</title>
+</head>
+<body>
+    <!-- Nesting operators -->
+    <!-- div>ul>li -->
+    <div>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+
+    <div></div>
+    <p></p>
+    <blockquote></blockquote>
+
+    <div></div>
+    <div>
+        <p><span></span></p>
+        <em></em>
+    </div>
+
+    <!-- div+div>p>span+em^^bq -->
+    <div></div>
+    <div>
+        <p><span></span><em></em></p>
+    </div>
+    <blockquote></blockquote>
+
+    <!-- ul>li*5 -->
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <!-- div>(header>ul>li*2>a)+footer>p -->
+    <div>
+        <header>
+            <ul>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+            </ul>
+        </header>
+        <footer>
+            <p></p>
+        </footer>
+    </div>
+
+    <!-- div>dl>(dt+dd)*3^^footer>p -->
+    <div>
+        <dl>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+        </dl>
+    </div>
+    <footer>
+        <p></p>
+    </footer>
+    
+    <!-- Attribute operators -->
+    <!-- div#header+div.page+div#footer.class1.class2.class3 -->
+    <div id="header"></div>
+    <div class="page"></div>
+    <div id="footer" class="class1 class2 class4"></div>
+
+    <!-- td[title="CustomAttribute" colspan="3"] -->
+    <td title="CustomAttribute" colspan="3"></td>
+
+    <!-- Text -->
+    <!-- a{Click Me} -->
+    <a href="">Click Me</a>
+
+    <div>
+        <div>&exist;</div>
+        <div>&nabla;</div>
+        <div>&sum;</div>
+        <div>&radic;</div>
+        <div>&prop;</div>
+        <div>&and;</div>
+        <div>&or;</div>
+        <div>&#8736;</div>
+        <div>&#8747;</div>
+        <div>&cong;</div>
+    </div>
+    
+</body>
+</html>
