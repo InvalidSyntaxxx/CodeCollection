@@ -4,7 +4,7 @@
  * @Author: 王远昭
  * @Date: 2022-11-10 21:37:10
  * @LastEditors: 王远昭
- * @LastEditTime: 2022-11-11 23:51:16
+ * @LastEditTime: 2022-11-11 23:58:34
  */
 
 const photo_per_page = 12;
@@ -175,7 +175,6 @@ function wordsPerDay() {
 function handlePageChange() {
   var CurrentPage = parseInt($(".active").text());
   let TotalPage = total / photo_per_page;
-  alert(TotalPage)
   function changeBtn(CurrentPage) {
     //active类居中
     if (CurrentPage >= 2 && CurrentPage <= TotalPage - 1) {
