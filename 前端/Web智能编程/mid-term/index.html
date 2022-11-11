@@ -4,7 +4,7 @@
  * @Author: 王远昭
  * @Date: 2022-11-10 13:43:40
  * @LastEditors: 王远昭
- * @LastEditTime: 2022-11-11 16:28:37
+ * @LastEditTime: 2022-11-11 21:48:55
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +41,7 @@
                 </div>
             </div>
         </nav>
-        <!-- 固定分类栏 -->
+        <!-- Banner栏 -->
         <div class="banner-outer">
             <div class="banner-inner">
               <div class="bubbles" id="bubbles">
@@ -50,30 +50,35 @@
             </div>
           </div>
 
+        <!-- 侧边一言 -->
+        <div class="words-per-day">
+            <div id="words-per-day"></div>
+            <div class="lishi">————历史今天</div>
+        </div>
         <!-- 摄影展览 -->
         <div class="gallery-wrapper container m-t3" id="gallery">
+        
         </div>
         <!-- 分页 -->
         <div class="container mt-3">
             <ul class="pagination justify-content-center">
-                <li class="page-item"><a href="#" class="page-link"><i class="bi bi-chevron-compact-left"></i></a></li>
-                <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                <li class="page-item"><a href="#" class="page-link"><i class="bi bi-chevron-compact-right"></i></a></li>
+                <li class="page-item" id="pre-btn"><a href="" class="page-link"><i class="bi bi-chevron-compact-left"></i></a></li>
+                <li class="page-item active" id="first-btn"><a href="" class="page-link">1</a></li>
+                <li class="page-item" id="second-btn"><a href="" class="page-link">2</a></li>
+                <li class="page-item" id="third-btn"><a href="" class="page-link">3</a></li>
+                <li class="page-item" id="next-btn"><a href="" class="page-link"><i class="bi bi-chevron-compact-right"></i></a></li>
             </ul>
         </div>
         <!-- 页脚区 -->
         <div class="footer-wrapper">
-            <div class="container">
-                <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top" style="background: aliceblue;">
                     <div class="col-md-4 d-flex align-items-center">
                         <svg class="bi" width="30" height="24">
                             <use xlink:href="#bootstrap"></use>
                         </svg>
                         <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
                     </div>
-                    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <ul class="footer-icon nav col-md-4 justify-content-end list-unstyled d-flex">
                         <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-facebook"
                                     style="color: #1877f2;"></i></a></li>
                         <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-twitter"
@@ -84,7 +89,6 @@
                                     style="color: #ff4500;"></i></a></li>
                     </ul>
                 </footer>
-            </div>
         </div>
     </main>
 </body>

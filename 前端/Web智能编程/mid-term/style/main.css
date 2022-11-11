@@ -6,8 +6,12 @@
   --nav-height-size: 4rem;
   --text-font-family: "LXGW WenKai Lite", sans-serif;
 }
+body{
+  background: #bcbfb4;
+}
 
 nav {
+  background-color: rgba(240, 248, 255,0.7);
   position: relative;
   width: 100%;
   height: var(--nav-height-size);
@@ -165,4 +169,32 @@ color: #303030;
   border-radius: 100%;
   background-color: rgb(240, 231, 231);
   z-index: 1;
+}
+.words-per-day{
+
+  max-height: 300px;
+  position: fixed;
+  left: 1.3rem;
+  top: 20%;
+  writing-mode: vertical-rl;
+  z-index: 3;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.words-per-day{
+  font-family: var(--text-font-family);
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.words-per-day .lishi{
+  position: fixed;
+  top: 400px;
+  left: 1rem;
+}
+.footer-icon{
+  font-size: 1.5rem;
+  padding-right: 3rem;
 }

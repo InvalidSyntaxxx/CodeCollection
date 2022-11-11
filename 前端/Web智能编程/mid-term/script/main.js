@@ -4,7 +4,7 @@
  * @Author: 王远昭
  * @Date: 2022-11-10 21:37:10
  * @LastEditors: 王远昭
- * @LastEditTime: 2022-11-11 16:56:40
+ * @LastEditTime: 2022-11-11 21:55:20
  */
 
 const photo_per_page = 12
@@ -69,7 +69,7 @@ function renderGallery(data) {
         <div class="tags">
 <i class="bi bi-tags-fill"></i>
 <span class="badge rounded-pill bg-primary">风景</span>
-<span class="badge rounded-pill bg-success">物5</span>
+<span class="badge rounded-pill bg-success">人物</span>
 <span class="badge rounded-pill bg-info">美食</span>
 </div>
     </div>
@@ -104,7 +104,7 @@ function bubble() {
   let offset = 50; //气泡偏移
   let bArray = [];
   let sArray = [0.3, 0.4, 0.5, 0.7, 0.8];
-  let color = '#a1c4fd'
+  let color = '#0192bd'
   for (var i = 0; i < bubbles.clientWidth + offset; i++) {
     bArray.push(i - offset/2);
   }
@@ -138,10 +138,31 @@ function bubble() {
       3000
     );
     setTimeout(() => bubbles?.removeChild(Node), 3000);
-  }, 350);
+  }, 100);
 }
 
+function wordsPerDay(){
+  var Node = document.getElementById("words-per-day");
+  
+    $.ajax({
+      url: "https://apis.jxcxin.cn/api/lishi?format=json",
+      type: "GET",
+      dataType: "json",
+      success:function(data){
+        let index = 1
+        Node.innerText = data.content[0]
+        setInterval(()=>{
+          Node.innerText = data.content[index]
+          if(index!=data.content.length) index++;
+          else index = 0
+        },3500)
+      }
+    });
+}
 // 页数改变事件
+function handlePageChange(){
+  
+}
 //函数入口，功能执行
 function main(){
   const photo_per_page = 12; // 3列 * 4行
@@ -149,6 +170,7 @@ function main(){
   renderDataByCurrentPage(CurrentPage,photo_per_page);
   bubble();
   Media()
-  handlePageChange();
+  // handlePageChange();
+  wordsPerDay()
 }
 main()
