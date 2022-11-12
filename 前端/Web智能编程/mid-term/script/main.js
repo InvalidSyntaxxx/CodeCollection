@@ -4,7 +4,7 @@
  * @Author: 王远昭
  * @Date: 2022-11-10 21:37:10
  * @LastEditors: 王远昭
- * @LastEditTime: 2022-11-11 23:58:34
+ * @LastEditTime: 2022-11-12 15:27:24
  */
 
 const photo_per_page = 12;
@@ -117,7 +117,7 @@ function bubble() {
   let offset = 50; //气泡偏移
   let bArray = [];
   let sArray = [0.3, 0.4, 0.5, 0.7, 0.8];
-  let color = "#0192bd";
+  let color = "#e0e0e0";
   for (var i = 0; i < bubbles.clientWidth + offset; i++) {
     bArray.push(i - offset / 2);
   }

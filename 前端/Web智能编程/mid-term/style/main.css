@@ -7,7 +7,10 @@
   --text-font-family: "LXGW WenKai Lite", sans-serif;
 }
 body{
-  background: #bcbfb4;
+  /* background: #bcbfb4; */
+  background-image: url(../assets/pictures/th.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 nav {
@@ -23,7 +26,7 @@ nav::after {
   position: absolute;
   content: "";
   left: 15px;
-  bottom: -1px;
+  bottom: 1px;
   width: 95%;
   height: 1.5px;
   animation: underline 2.7s linear infinite;
@@ -162,23 +165,21 @@ font-size: 40px;
 position: relative;
 margin: 1em 0 0;
 z-index: 2;
-color: #303030;
+color: #e0e0e0;
 }
 .individual-bubble {
   position: absolute;
   border-radius: 100%;
-  background-color: rgb(240, 231, 231);
   z-index: 1;
 }
 .words-per-day{
-
   max-height: 300px;
   position: fixed;
   left: 1.3rem;
   top: 20%;
   writing-mode: vertical-rl;
   z-index: 3;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(245, 245, 245, 0.5);
 }
 
 .words-per-day{
