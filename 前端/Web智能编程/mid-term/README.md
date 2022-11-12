@@ -8,6 +8,9 @@
 -->
 #### 在线预览
 [个人爱好——摄影展](https://wangwangyz.site/my/CodeCollected/CodeCollection/%E5%89%8D%E7%AB%AF/Web%E6%99%BA%E8%83%BD%E7%BC%96%E7%A8%8B/mid-term/index.html)
+网页快照：
+![image](https://user-images.githubusercontent.com/76170433/201469934-dedf682d-f269-4db5-8712-bd724ca09100.png)
+
 #### 题⽬
 
 利⽤Bootstrap设计⼀个⼩型前端主题⽹站
