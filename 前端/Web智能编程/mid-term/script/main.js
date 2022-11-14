@@ -4,7 +4,7 @@
  * @Author: 王远昭
  * @Date: 2022-11-10 21:37:10
  * @LastEditors: 王远昭
- * @LastEditTime: 2022-11-12 15:27:24
+ * @LastEditTime: 2022-11-14 15:15:44
  */
 
 const photo_per_page = 12;
@@ -226,6 +226,7 @@ function handlePageChange() {
   });
   //点击第一个按钮
 }
+
 //函数入口，功能执行
 function main() {
   renderDataByCurrentPage(CurrentPage);
