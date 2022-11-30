@@ -4,7 +4,7 @@
  * @Author: 王远昭
  * @Date: 2022-11-10 21:37:10
  * @LastEditors: 王远昭
- * @LastEditTime: 2022-11-14 15:15:44
+ * @LastEditTime: 2022-11-29 22:30:41
  */
 
 const photo_per_page = 12;
@@ -51,6 +51,8 @@ function renderGallery(data) {
   
   var tempalte = "";
   var temp = "";
+  let tags =   ['美食','人物','风景','动物','现实','爱好','梦想']
+  let bgBtn = ['bg-primary','bg-success','bg-info','bg-warning','bg-danger','bg-secondary','bg-light']
   let d = data;
   // console.log(data[0])
   for (let i = 0; i < photo_per_page; i++) {
@@ -81,9 +83,15 @@ function renderGallery(data) {
         </div>
         <div class="tags">
 <i class="bi bi-tags-fill"></i>
-<span class="badge rounded-pill bg-primary">风景</span>
-<span class="badge rounded-pill bg-success">人物</span>
-<span class="badge rounded-pill bg-info">美食</span>
+<span class="badge rounded-pill 
+`+bgBtn[Math.floor(Math.random()*bgBtn.length)]+`">
+`+tags[Math.floor(Math.random()*tags.length)]+`</span>
+<span class="badge rounded-pill 
+`+bgBtn[Math.floor(Math.random()*bgBtn.length)]+`">
+`+tags[Math.floor(Math.random()*tags.length)]+`</span>
+<span class="badge rounded-pill 
+`+bgBtn[Math.floor(Math.random()*bgBtn.length)]+`">
+`+tags[Math.floor(Math.random()*tags.length)]+`</span>
 </div>
     </div>
 `;
@@ -98,19 +106,6 @@ function renderGallery(data) {
   parentNode.appendChild(CardNode);
 }
 
-// 解决JS修改DOM后，CSS文件的媒体查询不生效
-// 自定义媒体查询函数
-function Media() {
-  // 此媒体查询以最小宽度为 320px 的视口为目标
-  const mQuery = window.matchMedia("(max-width: 768px)");
-  function handleMobilePhoneResize(e) {
-    // 检查媒体查询是否为真
-    if (e.matches) {
-      var Node = $("title").css({ display: "inline" });
-    }
-  }
-  mQuery.addListener(handleMobilePhoneResize);
-}
 
 function bubble() {
   let bubbles = document.getElementById("bubbles");
@@ -231,7 +226,6 @@ function handlePageChange() {
 function main() {
   renderDataByCurrentPage(CurrentPage);
   bubble();
-  Media();
   handlePageChange();
   wordsPerDay();
 }

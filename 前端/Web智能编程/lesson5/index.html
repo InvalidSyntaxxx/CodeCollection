@@ -1,0 +1,104 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 王远昭
+ * @Date: 2022-11-22 16:17:39
+ * @LastEditors: 王远昭
+ * @LastEditTime: 2022-11-29 00:40:21
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <template id="UserCardTemplate">
+        <!-- Component内样式，不影响局外样式 -->
+      <style>
+        /* ：host伪类代表自定义元素本身，既template标签 */
+        :host {
+          display: flex;
+          align-items: center;
+          width: 450px;
+          height: 180px;
+          background-color: #767676;
+          border: 1px solid #d5d5d5;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+          border-radius: 3px;
+          overflow: hidden;
+          padding: 10px;
+          box-sizing: border-box;
+          font-family: "Poppins", sans-serif;
+        }
+        .image {
+          flex: 0 0 auto;
+          width: 160px;
+          height: 160px;
+          vertical-align: middle;
+          border-radius: 5px;
+        }
+        .container {
+          box-sizing: border-box;
+          padding: 20px;
+          height: 160px;
+        }
+        .container > .name {
+          color: rgb(244, 238, 238);
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 1;
+          margin: 0;
+          margin-bottom: 5px;
+        }
+        .container > .email {
+          font-size: 12px;
+          opacity: 0.75;
+          line-height: 1;
+          margin: 0;
+          margin-bottom: 15px;
+        }
+        .container > .button {
+          padding: 10px 25px;
+          font-size: 12px;
+          border-radius: 5px;
+          text-transform: uppercase;
+        }
+      </style>
+      <!-- Template自定义DOM结构 -->
+      <img class="image" />
+      <div class="container">
+        <p class="name"></p>
+        <p class="email"></p>
+        <button class="button">Follow</button>
+      </div>
+    </template>
+
+    <!-- 引入Component，使用透传属性 -->
+    <user-card image="https://apis.jxcxin.cn/api/dmimg" 
+    name="Ysdasy" email="yonyasds@mial.com"></user-card>
+   
+   <script>
+        // Component类
+      class UserCard extends HTMLElement {
+        constructor() {
+          super();
+            //设定不外传
+          var shadow = this.attachShadow( { mode:'closed'});
+
+          let templateElem = document.getElementById("UserCardTemplate");
+          let content = templateElem.content.cloneNode(true);
+          content.querySelector('img').setAttribute('src',this.getAttribute('image'));
+          content.querySelector('.name').innerText = this.getAttribute('name');
+          content.querySelector('.email').innerText = this.getAttribute('email');
+
+          shadow.appendChild(content);
+        }
+      }
+    //   向全局定义自定义Component
+      window.customElements.define("user-card", UserCard);
+    </script>
+  </body>
+</html>

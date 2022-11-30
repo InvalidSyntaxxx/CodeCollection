@@ -1,11 +1,20 @@
+'''
+    ---------------爬取图片脚本-------------
+    | 1. 环境: Windows-WSL2-Ubuntu20.04    |
+    | 2. 确定图片信息保存地址 saveto        |
+    | 3. 当前脚本目录下, Ubuntu终端执行:    |
+    |       python3 getBing.py             |
+    | 4. 到 saveto 查看已爬取的 JSON 信息   |
+    ----------------------------------------
+
+    版权：无版权，喜欢就行，欢迎提建议更新
+'''
 import json
 import os
-import random
 import re
 import time
 import requests
 import atexit
-
 
 totalPage = 204 #网站的总页数
 currentPage = 1 #当前爬取图片的页数
@@ -15,10 +24,10 @@ myheader = {
     }
 statusCode = 0 #爬取时返回的HTTP状态码
 mainSite = "https://bing.ioliu.cn" #要爬的网页
+saveto = "/mnt/c/Users/86199/Desktop/CodeCollection/前端/Web智能编程/mid-term//assets/data/bing.json"
 pic_url_list = [] #图片的下载地址
 fail=[] #下载失败的url
 success=[] #下载成功的url
-saveto = "/mnt/c/Users/86199/Desktop/CodeCollection/前端/Web智能编程/mid-term//assets/data/bing.json"
 data = []
 # param：页面的相应地址
 # return：成功直接返回相应DOM文档，失败返回 "什么也没有"
