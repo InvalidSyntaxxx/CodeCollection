@@ -93,11 +93,19 @@ ion-icon{
     
 }
 
+.classification {
+    position: relative;
+    font-family: var(--text-font-family);
+    margin: 1em 0 0 1em;
+    color: #000000;
+}
 
 .productcontainer{
     display: flex;
     margin: 0 calc(1em + 2vw);
     max-width: 100%;
+    max-height: 820px;
+    overflow: hidden;
 }
 
 .left{

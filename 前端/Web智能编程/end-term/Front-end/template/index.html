@@ -4,7 +4,7 @@
  * @Author: 王远昭
  * @Date: 2023-01-05 19:55:01
  * @LastEditors: 王远昭
- * @LastEditTime: 2023-01-07 22:53:00
+ * @LastEditTime: 2023-01-07 23:24:29
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -78,8 +78,10 @@
 
         </div>
 
+
         <!-- 商品展示 -->
         <div id="product">
+            <h2 class="classification">手机</h2>
             <div class="productcontainer">
                 <div class="left">
 
@@ -98,7 +100,18 @@
                         <p class="price">{{ product['price'] }}元</p>
                     </div>
                 </div>
-
+            </div>
+            <h2 class="classification">其它</h2>
+            <div class="right">
+                <div v-for="other in others" class="product">
+                    <div class="imgcontainer">
+                        <img :src="'../data/img/'+other['img']" alt="">
+                    </div>
+                    <h3 class="name">{{ other['name']}}</h3>
+                    <p class="description">{{ other['description'].substring(0,16) }}...</p>
+                    <p class="price">{{ other['price'] }}元</p>
+                </div>
+                
             </div>
         </div>
 
