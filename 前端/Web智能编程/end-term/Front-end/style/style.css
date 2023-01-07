@@ -142,3 +142,23 @@ ion-icon{
     font-size: 1.5em;
     color: #ff6700;
 }
+
+#Cart{
+    position: fixed;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2em;
+    width: 2em;
+    bottom: 3em;
+    right: calc(1em + 1vw);
+    border-radius: 50px;
+    background-color: rgb(243, 100, 24);
+}
+#Cart ion-icon{
+    color: #fff;
+}
+#Cart ion-icon:hover{
+    color: #242424;
+}
