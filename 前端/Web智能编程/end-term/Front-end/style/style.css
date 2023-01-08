@@ -74,6 +74,15 @@ li:nth-child(4):hover
 {
     background-color: rgba(1, 1, 1, 0);
 }
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
     /* 解决icon对不齐文字 */
 ion-icon{
     width: 1em;
@@ -137,11 +146,14 @@ ion-icon{
 }
 
 .description{
+    width: 240px;
     margin: 0;
     font-size: .75em;
     padding: calc(1em - 1vh) 0;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
-    font-size: small;
     color: #b0b0b0;
 }
 

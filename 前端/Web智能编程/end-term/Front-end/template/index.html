@@ -4,7 +4,7 @@
  * @Author: 王远昭
  * @Date: 2023-01-05 19:55:01
  * @LastEditors: 王远昭
- * @LastEditTime: 2023-01-07 23:24:29
+ * @LastEditTime: 2023-01-08 11:10:42
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@
     <script src="../script/js/axios.min.js"></script>
     <script src="../script/js/bootstrap.bundle.min.js"></script>
 
-    <script src="../script/js/vue.global.js"></script>
+    <script src="../script/js/vue.global.prod.js"></script>
     <title>商城中心</title>
 </head>
 
@@ -96,7 +96,7 @@
                             <img :src="'../data/img/'+product['img']" alt="">
                         </div>
                         <h3 class="name">{{ product['name']}}</h3>
-                        <p class="description">{{ product['description'].substring(0,16) }}...</p>
+                        <p class="description">{{ product['description'] }}</p>
                         <p class="price">{{ product['price'] }}元</p>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
                         <img :src="'../data/img/'+other['img']" alt="">
                     </div>
                     <h3 class="name">{{ other['name']}}</h3>
-                    <p class="description">{{ other['description'].substring(0,16) }}...</p>
+                    <p class="description">{{ other['description'] }}</p>
                     <p class="price">{{ other['price'] }}元</p>
                 </div>
                 
