@@ -4,7 +4,7 @@
  * @Author: 王远昭
  * @Date: 2023-01-05 19:55:01
  * @LastEditors: 王远昭
- * @LastEditTime: 2023-01-08 11:10:42
+ * @LastEditTime: 2023-01-08 12:21:25
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -31,11 +31,11 @@
         <!-- 导航栏 -->
         <div>
             <ul>
-                <li>
-                    <span>首页</span>
-                </li>
+                <li>首页</li>
                 <li>商城</li>
-                <li>联系</li>
+                <li>分类</li>
+                <li>我的</li>
+                <li>客服</li>
                 <li>
                     <div class="input-group ">
                         <input type="text" class="form-control" placeholder="找点什么.." aria-label="Recipient's
@@ -95,6 +95,11 @@
                         <div class="imgcontainer">
                             <img :src="'../data/img/'+product['img']" alt="">
                         </div>
+                        <div class="info">
+                            <span class="see"><ion-icon style="font-size: large;" name="eye-outline"></ion-icon>{{ product['see']}}</span>
+                            <span class="love"><ion-icon style="font-size: large;" name="heart-outline"></ion-icon>{{ product['love']}} </span>
+                            <span class="hot"><ion-icon style="font-size: large;" name="flame"></ion-icon>{{ product['hot']}} </span>
+                        </div>
                         <h3 class="name">{{ product['name']}}</h3>
                         <p class="description">{{ product['description'] }}</p>
                         <p class="price">{{ product['price'] }}元</p>
@@ -106,6 +111,11 @@
                 <div v-for="other in others" class="product">
                     <div class="imgcontainer">
                         <img :src="'../data/img/'+other['img']" alt="">
+                    </div>
+                    <div class="info">
+                        <span class="see"><ion-icon style="font-size: large;" name="eye-outline"></ion-icon>{{ other['see']}}</span>
+                        <span class="love"><ion-icon style="font-size: large;" name="heart-outline"></ion-icon>{{ other['love']}} </span>
+                        <span class="hot"><ion-icon style="font-size: large;" name="flame"></ion-icon>{{ other['hot']}} </span>
                     </div>
                     <h3 class="name">{{ other['name']}}</h3>
                     <p class="description">{{ other['description'] }}</p>

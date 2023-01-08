@@ -62,15 +62,15 @@ li:active {
     color: #fff;
 }
 
-li:nth-child(4){
+li:nth-child(6){
     top: -0.15em;
     position: absolute;
     right: calc(1em - 1vw);
 }
-li:nth-child(4)::before{
+li:nth-child(6)::before{
     border-bottom: 0px
 }
-li:nth-child(4):hover
+li:nth-child(6):hover
 {
     background-color: rgba(1, 1, 1, 0);
 }
@@ -140,16 +140,38 @@ ion-icon{
     transform: translate3d(0,-2px,0);
     transition: all .25s linear;
 }
+.info{
+    /* width: 100%; */
+    /* float: right; */
+    display: block;
+    font-size: 0.5em;
+    color: #DCD9D4;
+    margin: 0 0 1em;
+}
+.info ion-icon{
+    vertical-align: -.25em;
+}
+.see{
+
+}
+.love{
+    padding: 0 3em;
+}
+.hot {
+    right: 0;
+}
+
 .name{
+    display: block;
     font-family: var(--text-font-family);
     font-size: 1.15em;
 }
 
 .description{
     width: 240px;
-    margin: 0;
+    margin: -.5em 0 0;
     font-size: .75em;
-    padding: calc(1em - 1vh) 0;
+    padding: 0 0 calc(1em - 1vh);
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -158,9 +180,11 @@ ion-icon{
 }
 
 .price{
+   
     font-family: initial;
     font-size: 1.5em;
     color: #ff6700;
+   
 }
 
 #Cart{
