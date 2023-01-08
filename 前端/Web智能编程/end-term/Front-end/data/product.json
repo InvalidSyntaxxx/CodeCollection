@@ -13,7 +13,7 @@
     {"productId":11,"name":"小米真无线蓝牙耳机Air2 SE","description":"大尺寸动圈单元 | 20小时持久续航 | 双麦克风通话降噪","price":"1299","img":"Buds4.png","number":16,"fl_id":7},
     {"productId":12,"name":"Redmi Book Pro 14 2022","description":"全新12代英特尔处理器，2.5K 120Hz高清屏，可选MX550独立显卡,CNC一体精雕工艺","price":"5399","img":"MiBook.png","number":16,"fl_id":7},
     {"productId":13,"name":"Redmi Pad","description":"入门平板，屏幕/外观/系统三大升级","price":"1199","img":"MiPad.png","number":21,"fl_id":1},
-    {"productId":14,"name":"小米电视 ES55 2022款","description":"多分区背光 | MEMC动态补偿 | 杜比视界","price":"2499","img":"xiaomi电视.png","number":91,"fl_id":1}
+    {"productId":14,"name":"小米电视 ES55 2022款","description":"多分区背光 | MEMC动态补偿 | 杜比视界","price":"2499","img":"xiaomiTV.png","number":91,"fl_id":1}
   ],
   "color_base":[
     {"colorId": 1, "name": "金色", "p_id": "1,2,3,4,5,6","b_id":"5,6","img":"jin"},
