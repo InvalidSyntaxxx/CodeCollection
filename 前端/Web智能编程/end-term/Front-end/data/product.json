@@ -1,56 +1,492 @@
 {
-  "products":[
-    {"productId":1,"name":"Redmi 12C","description":"高性能长续航，5000万像素超清双摄","price":"699","img":"12c.png","number":15,"fl_id":1,"see":"998","love":"99","hot":"342"},
-    {"productId":2,"name":"Redmi K60","description":"骁龙8+｜2K 高光直屏｜5500mAh+67W闪充","price":"2499","img":"K60.png","number":12,"fl_id":1,"hot":"342"},
-    {"productId":3,"name":"Redmi K60 Pro","description":"【第二代晓龙8】狂暴引擎","price":"3299","img":"K60Pro.png","number":161,"fl_id":1,"hot":"342"},
-    {"productId":4,"name":"Xiaomi 13 限量定制色","description":"全新第二代骁龙8｜徕卡专业光学镜头｜徕卡原生双画质 | 6.36″超窄边屏幕｜67W小米澎湃秒充｜徕卡75mm长焦镜头","price":"4999","img":"Xiaomi13.png","number":151,"fl_id":2,"see":"998","love":"99","hot":"342"},
-    {"productId":5,"name":"Xiaomi 13","description":"全新第二代骁龙8｜徕卡专业光学镜头｜徕卡原生双画质 | 6.36″超窄边屏幕｜67W小米澎湃秒充｜徕卡75mm长焦镜头","price":"3999","img":"Xiaomi13Pro.png","number":81,"fl_id":2,"see":"998","love":"99","hot":"342"},
-    {"productId":6,"name":"Xiaomi 13 Pro","description":"全新第二代骁龙8｜徕卡专业光学镜头｜徕卡原生双画质 | 6.36″超窄边屏幕｜67W小米澎湃秒充｜徕卡75mm长焦镜头","price":"4999","img":"Xiaomi13.png","number":771,"fl_id":2,"see":"998","love":"99","hot":"342"},
-    {"productId":7,"name":"Redmi Note 12 Pro 极速版 ","description":"高通骁龙778G，OLED柔性直屏+一亿像素","price":"1699","img":"Note12Pro.png","number":11,"fl_id":3,"see":"998","love":"99","hot":"342"},
-    {"productId":8,"name":"Redmi Note 12 5G","description":"三星 OLED 护眼屏｜骁龙 5G 芯｜5000mAh 电量","price":"1199","img":"Xiaomi14.png","number":177,"fl_id":3,"see":"998","love":"99","hot":"342"},
-    {"productId":9,"name":"Xiaomi Buds 3","description":"40dB宽频主动降噪 | HiFi高保真音质 | HRTF专业调音","price":"299","img":"Buds3.png","number":11,"fl_id":5,"see":"998","love":"99","hot":"342"},
-    {"productId":10,"name":"Xiaomi Buds 4","description":"35dB 智能主动降噪 | AI 通话降噪 | 30小时超长续航","price":"199","img":"Buds4.png","number":16,"fl_id":4,"see":"998","love":"99","hot":"342"},
-    {"productId":11,"name":"小米真无线蓝牙耳机Air2 SE","description":"大尺寸动圈单元 | 20小时持久续航 | 双麦克风通话降噪","price":"1299","img":"Buds4.png","number":16,"see":"998","love":"99","fl_id":7,"hot":"342"},
-    {"productId":12,"name":"Redmi Book Pro 14 2022","description":"全新12代英特尔处理器，2.5K 120Hz高清屏，可选MX550独立显卡,CNC一体精雕工艺","price":"5399","img":"MiBook.png","number":16,"fl_id":7,"see":"998","love":"99","hot":"342"},
-    {"productId":13,"name":"Redmi Pad","description":"入门平板，屏幕/外观/系统三大升级","price":"1199","img":"MiPad.png","number":21,"fl_id":1,"see":"998","love":"99","hot":"342"},
-    {"productId":14,"name":"小米电视 ES55 2022款","description":"多分区背光 | MEMC动态补偿 | 杜比视界","price":"2499","img":"xiaomiTV.png","number":91,"fl_id":1,"see":"998","love":"99","hot":"342"}
+  "products": [
+    {
+      "id": 1,
+      "name": "Redmi 12C",
+      "description": "高性能长续航，5000万像素超清双摄",
+      "price": "699",
+      "img": "12c.png",
+      "inventory": 2,
+      "number": 15,
+      "type": "红米",
+      "see": "998",
+      "love": "29",
+      "hot": "342"
+    },
+    {
+      "id": 2,
+      "name": "Redmi K60",
+      "description": "骁龙8+｜2K 高光直屏｜5500mAh+67W闪充",
+      "price": "2499",
+      "inventory": 2,
+      "img": "K60.png",
+      "number": 12,
+      "type": "红米",
+      "see": "358",
+      "love": "7",
+      "hot": "342"
+    },
+    {
+      "id": 3,
+      "name": "Redmi K60 Pro",
+      "description": "【第二代晓龙8】狂暴引擎",
+      "price": "3299",
+      "inventory": 2,
+      "img": "K60Pro.png",
+      "number": 161,
+      "type": "红米",
+      "see": "48",
+      "love": "9",
+      "hot": "342"
+    },
+    {
+      "id": 4,
+      "name": "Xiaomi 13 限量定制色",
+      "description": "全新第二代骁龙8｜徕卡专业光学镜头｜徕卡原生双画质 | 6.36″超窄边屏幕｜67W小米澎湃秒充｜徕卡75mm长焦镜头",
+      "price": "4999",
+      "inventory": 2,
+      "img": "Xiaomi13.png",
+      "number": 151,
+      "type": "小米手机",
+      "see": "928",
+      "love": "99",
+      "hot": "342"
+    },
+    {
+      "id": 5,
+      "name": "Xiaomi 13",
+      "description": "全新第二代骁龙8｜徕卡专业光学镜头｜徕卡原生双画质 | 6.36″超窄边屏幕｜67W小米澎湃秒充｜徕卡75mm长焦镜头",
+      "price": "3999",
+      "inventory": 2,
+      "img": "Xiaomi13Pro.png",
+      "number": 81,
+      "type": "小米手机",
+      "see": "999+",
+      "love": "99",
+      "hot": "342"
+    },
+    {
+      "id": 6,
+      "name": "Xiaomi 13 Pro",
+      "description": "全新第二代骁龙8｜徕卡专业光学镜头｜徕卡原生双画质 | 6.36″超窄边屏幕｜67W小米澎湃秒充｜徕卡75mm长焦镜头",
+      "price": "4999",
+      "inventory": 2,
+      "img": "Xiaomi13.png",
+      "number": 771,
+      "type": "小米手机",
+      "see": "998",
+      "love": "99",
+      "hot": "342"
+    },
+    {
+      "id": 7,
+      "name": "Redmi Note 12 Pro 极速版 ",
+      "description": "高通骁龙778G，OLED柔性直屏+一亿像素",
+      "price": "1699",
+      "inventory": 2,
+      "img": "Note12Pro.png",
+      "number": 11,
+      "type": "红米",
+      "see": "998",
+      "love": "99",
+      "hot": "342"
+    },
+    {
+      "id": 8,
+      "name": "Redmi Note 12 5G",
+      "description": "三星 OLED 护眼屏｜骁龙 5G 芯｜5000mAh 电量",
+      "price": "1199",
+      "inventory": 2,
+      "img": "Xiaomi14.png",
+      "number": 177,
+      "type": "红米",
+      "see": "998",
+      "love": "99",
+      "hot": "342"
+    },
+    {
+      "id": 9,
+      "name": "Xiaomi Buds 3",
+      "description": "40dB宽频主动降噪 | HiFi高保真音质 | HRTF专业调音",
+      "price": "299",
+      "inventory": 2,
+      "img": "Buds3.png",
+      "number": 11,
+      "type": "耳机",
+      "see": "998",
+      "love": "99",
+      "hot": "342"
+    },
+    {
+      "id": 10,
+      "name": "Xiaomi Buds 4",
+      "description": "35dB 智能主动降噪 | AI 通话降噪 | 30小时超长续航",
+      "price": "199",
+      "inventory": 2,
+      "img": "Buds4.png",
+      "number": 16,
+      "type": "耳机",
+      "see": "998",
+      "love": "99",
+      "hot": "342"
+    },
+    {
+      "id": 11,
+      "name": "小米真无线蓝牙耳机Air2 SE",
+      "description": "大尺寸动圈单元 | 20小时持久续航 | 双麦克风通话降噪",
+      "price": "1299",
+      "inventory": 2,
+      "img": "Buds4.png",
+      "number": 16,
+      "see": "998",
+      "love": "99",
+      "type": "耳机",
+      "hot": "342"
+    },
+    {
+      "id": 12,
+      "name": "Redmi Book Pro 14 2022",
+      "description": "全新12代英特尔处理器，2.5K 120Hz高清屏，可选MX550独立显卡,CNC一体精雕工艺",
+      "price": "5399",
+      "img": "MiBook.png",
+      "number": 16,
+      "type": "笔记本",
+      "inventory": 2,
+      "see": "998",
+      "love": "99",
+      "hot": "342"
+    },
+    {
+      "id": 13,
+      "name": "Redmi Pad",
+      "description": "入门平板，屏幕/外观/系统三大升级",
+      "price": "1199",
+      "inventory": 2,
+      "img": "MiPad.png",
+      "number": 21,
+      "type": "平板",
+      "see": "998",
+      "love": "99",
+      "hot": "342"
+    },
+    {
+      "id": 14,
+      "name": "小米电视 ES55 2022款",
+      "description": "多分区背光 | MEMC动态补偿 | 杜比视界",
+      "price": "2499",
+      "inventory": 2,
+      "img": "xiaomiTV.png",
+      "number": 91,
+      "type": "电视",
+      "see": "998",
+      "love": "99",
+      "hot": "342"
+    }
   ],
-  "color_base":[
-    {"colorId": 1, "name": "金色", "p_id": "1,2,3,4,5,6","b_id":"5,6","img":"jin"},
-    {"colorId": 2, "name": "银白", "p_id": "1,2,3,4,5","b_id":"5,6","img":"yin"},
-    {"colorId": 3, "name": "深灰", "p_id": "1,2","b_id":"5,6","img":"hei"}
+  "color_base": [
+    {
+      "colorId": 1,
+      "name": "金色",
+      "p_id": "1,2,3,4,5,6",
+      "b_id": "5,6",
+      "img": "jin"
+    },
+    {
+      "colorId": 2,
+      "name": "银白",
+      "p_id": "1,2,3,4,5",
+      "b_id": "5,6",
+      "img": "yin"
+    },
+    {
+      "colorId": 3,
+      "name": "深灰",
+      "p_id": "1,2",
+      "b_id": "5,6",
+      "img": "hei"
+    }
   ],
-  "color_info":[
-    {"colorId": 1, "name": "金色", "p_id": ",1,2,3,4,5,6,7,8,9,10,11,12,13,14,","b_id":",2,3,4,5,6,7,9,","img":"jin"},
-    {"colorId": 2, "name": "银白", "p_id": ",1,2,3,4,5,6,7,8,9,10,11,12,13,14,","b_id":",2,3,4,5,6,7,9,","img":"yin"},
-    {"colorId": 3, "name": "深灰", "p_id": ",1,2,3,4,5,6,7,8,9,10,11,12,13,14,","b_id":",2,3,4,5,6,7,9,","img":"hei"},
-    {"colorId": 4, "name": "黑色 3D陶瓷机身", "p_id": ",1,2,3,4,5,6,","b_id":",8,","img":"hei"},
-    {"colorId": 5, "name": "白色 3D陶瓷机身", "p_id": ",1,2,3,4,5,","b_id":",8,","img":"yin"},
-    {"colorId": 6, "name": "紫色 3D玻璃机身", "p_id": ",1,2,","b_id":",8,","img":"zi"}
+  "color_info": [
+    {
+      "colorId": 1,
+      "name": "金色",
+      "p_id": ",1,2,3,4,5,6,7,8,9,10,11,12,13,14,",
+      "b_id": ",2,3,4,5,6,7,9,",
+      "img": "jin"
+    },
+    {
+      "colorId": 2,
+      "name": "银白",
+      "p_id": ",1,2,3,4,5,6,7,8,9,10,11,12,13,14,",
+      "b_id": ",2,3,4,5,6,7,9,",
+      "img": "yin"
+    },
+    {
+      "colorId": 3,
+      "name": "深灰",
+      "p_id": ",1,2,3,4,5,6,7,8,9,10,11,12,13,14,",
+      "b_id": ",2,3,4,5,6,7,9,",
+      "img": "hei"
+    },
+    {
+      "colorId": 4,
+      "name": "黑色 3D陶瓷机身",
+      "p_id": ",1,2,3,4,5,6,",
+      "b_id": ",8,",
+      "img": "hei"
+    },
+    {
+      "colorId": 5,
+      "name": "白色 3D陶瓷机身",
+      "p_id": ",1,2,3,4,5,",
+      "b_id": ",8,",
+      "img": "yin"
+    },
+    {
+      "colorId": 6,
+      "name": "紫色 3D玻璃机身",
+      "p_id": ",1,2,",
+      "b_id": ",8,",
+      "img": "zi"
+    }
   ],
-  "versions_info":[
-    {"versionId": 1, "name": "全网通 2GB内存＋16GB容量", "p_id": "0","price":100,"description":"高通骁龙820处理器 最高主频 1.8GHz，3GB内存，32GB容量，全网通3.0"},
-    {"versionId": 2, "name": "全网通 3GB内存＋32GB容量 指纹识别", "p_id": "0","price":200},
-    {"versionId": 3, "name": "全网通 3GB内存+32GB容量", "p_id": ",1,3,6,7,8,9,13,14,","price":300,"description":"高通骁龙820处理器 最高主频 1.8GHz，3GB内存，32GB容量，全网通3.0"},
-    {"versionId": 4, "name": "全网通 4GB内存+64GB容量 指纹识别", "p_id": ",1,3,4,6,7,8,9,13,14,","price":400,"description":"高通骁龙820处理器 最高主频 1.8GHz，3GB内存，32GB容量，全网通3.0"},
-    {"versionId": 5, "name": "全网通 6GB内存+128GB容量 指纹识别", "p_id": ",1,3,4,6,7,8,9,13,14,","price":300,"description":"高通骁龙820处理器 最高主频 1.8GHz，3GB内存，32GB容量，全网通3.0"},
-    {"versionId": 6, "name": "标准版", "p_id": "2","price":2100,"description":"高通骁龙820处理器 最高主频 1.8GHz，3GB内存，32GB容量，全网通3.0"},
-    {"versionId": 7, "name": "高配版", "p_id": "2","price":2200,"description":"高通骁龙820处理器 最高主频 2.15GHz，3GB内存，64GB容量，全网通3.0"},
-    {"versionId": 8, "name": "尊享版", "p_id": "2","price":2300,"description":"高通骁龙820处理器 最高主频 2.15GHz，4GB内存，128GB容量，全网通3.0"},
-    {"versionId": 9, "name": "标准版全网通 2GB内存＋16GB容量", "p_id": "4","price":400},
-    {"versionId": 10, "name": "标准版 2GB内存+16GB容量", "p_id": "5","price":600},
-    {"versionId": 11, "name": "高配版 3GB内存+32GB容量", "p_id": "5","price":1900}
+  "versions_info": [
+    {
+      "versionId": 1,
+      "name": "全网通 2GB内存＋16GB容量",
+      "p_id": "0",
+      "price": 100,
+      "description": "高通骁龙820处理器 最高主频 1.8GHz，3GB内存，32GB容量，全网通3.0"
+    },
+    {
+      "versionId": 2,
+      "name": "全网通 3GB内存＋32GB容量 指纹识别",
+      "p_id": "0",
+      "price": 200
+    },
+    {
+      "versionId": 3,
+      "name": "全网通 3GB内存+32GB容量",
+      "p_id": ",1,3,6,7,8,9,13,14,",
+      "price": 300,
+      "description": "高通骁龙820处理器 最高主频 1.8GHz，3GB内存，32GB容量，全网通3.0"
+    },
+    {
+      "versionId": 4,
+      "name": "全网通 4GB内存+64GB容量 指纹识别",
+      "p_id": ",1,3,4,6,7,8,9,13,14,",
+      "price": 400,
+      "description": "高通骁龙820处理器 最高主频 1.8GHz，3GB内存，32GB容量，全网通3.0"
+    },
+    {
+      "versionId": 5,
+      "name": "全网通 6GB内存+128GB容量 指纹识别",
+      "p_id": ",1,3,4,6,7,8,9,13,14,",
+      "price": 300,
+      "description": "高通骁龙820处理器 最高主频 1.8GHz，3GB内存，32GB容量，全网通3.0"
+    },
+    {
+      "versionId": 6,
+      "name": "标准版",
+      "p_id": "2",
+      "price": 2100,
+      "description": "高通骁龙820处理器 最高主频 1.8GHz，3GB内存，32GB容量，全网通3.0"
+    },
+    {
+      "versionId": 7,
+      "name": "高配版",
+      "p_id": "2",
+      "price": 2200,
+      "description": "高通骁龙820处理器 最高主频 2.15GHz，3GB内存，64GB容量，全网通3.0"
+    },
+    {
+      "versionId": 8,
+      "name": "尊享版",
+      "p_id": "2",
+      "price": 2300,
+      "description": "高通骁龙820处理器 最高主频 2.15GHz，4GB内存，128GB容量，全网通3.0"
+    },
+    {
+      "versionId": 9,
+      "name": "标准版全网通 2GB内存＋16GB容量",
+      "p_id": "4",
+      "price": 400
+    },
+    {
+      "versionId": 10,
+      "name": "标准版 2GB内存+16GB容量",
+      "p_id": "5",
+      "price": 600
+    },
+    {
+      "versionId": 11,
+      "name": "高配版 3GB内存+32GB容量",
+      "p_id": "5",
+      "price": 1900
+    }
   ],
-  "detail_info":[
-    {"detailId":1,"name":"概述","productIds":"2"},
-    {"detailId":2,"name":"黑科技","productIds":"2"},
-    {"detailId":3,"name":"相机","productIds":"2"},
-    {"detailId":4,"name":"屏幕","productIds":"2"},
-    {"detailId":5,"name":"设计","productIds":"2"},
-    {"detailId":6,"name":"图集","productIds":"2"},
-    {"detailId":7,"name":"参数","productIds":"2"},
-    {"detailId":8,"name":"意外保","productIds":"2"},
-    {"detailId":9,"name":"F码通道","productIds":"2"}
-
+  "fenlei": [
+    {
+      "id": "1",
+      "classification": "小米手机",
+      "isNav": 1
+    },
+    {
+      "id": "2",
+      "classification": "红米",
+      "isNav": 1
+    },
+    {
+      "id": "3",
+      "classification": "平板",
+      "isNav": 1
+    },
+    {
+      "id": "4",
+      "classification": "电视",
+      "isNav": 1
+    },
+    {
+      "id": "19",
+      "classification": "笔记本",
+      "isNav": 1
+    },
+    {
+      "id": "5",
+      "classification": "盒子",
+      "isNav": 1
+    },
+    {
+      "id": "6",
+      "classification": "路由器",
+      "isNav": 1
+    },
+    {
+      "id": "7",
+      "classification": "智能硬件",
+      "isNav": 1
+    },
+    {
+      "id": "8",
+      "classification": "电话卡",
+      "isNav": 0
+    },
+    {
+      "id": "9",
+      "classification": "移动电源",
+      "isNav": 0
+    },
+    {
+      "id": "10",
+      "classification": "插线板",
+      "isNav": 0
+    },
+    {
+      "id": "11",
+      "classification": "耳机",
+      "isNav": 0
+    },
+    {
+      "id": "12",
+      "classification": "音箱",
+      "isNav": 0
+    },
+    {
+      "id": "13",
+      "classification": "电池",
+      "isNav": 0
+    },
+    {
+      "id": "14",
+      "classification": "存储卡",
+      "isNav": 0
+    },
+    {
+      "id": "15",
+      "classification": "保护套",
+      "isNav": 0
+    },
+    {
+      "id": "16",
+      "classification": "后盖",
+      "isNav": 0
+    },
+    {
+      "id": "17",
+      "classification": "贴膜",
+      "isNav": 0
+    },
+    {
+      "id": "18",
+      "classification": "其他配件",
+      "isNav": 0
+    },
+    {
+      "id": "19",
+      "classification": "米兔",
+      "isNav": 0
+    },
+    {
+      "id": "20",
+      "classification": "服装",
+      "isNav": 0
+    },
+    {
+      "id": "21",
+      "classification": "箱包",
+      "isNav": 0
+    },
+    {
+      "id": "22",
+      "classification": "其他周边",
+      "isNav": 0
+    }
+  ],
+  "detail_info": [
+    {
+      "detailId": 1,
+      "name": "概述",
+      "productIds": "2"
+    },
+    {
+      "detailId": 2,
+      "name": "黑科技",
+      "productIds": "2"
+    },
+    {
+      "detailId": 3,
+      "name": "相机",
+      "productIds": "2"
+    },
+    {
+      "detailId": 4,
+      "name": "屏幕",
+      "productIds": "2"
+    },
+    {
+      "detailId": 5,
+      "name": "设计",
+      "productIds": "2"
+    },
+    {
+      "detailId": 6,
+      "name": "图集",
+      "productIds": "2"
+    },
+    {
+      "detailId": 7,
+      "name": "参数",
+      "productIds": "2"
+    },
+    {
+      "detailId": 8,
+      "name": "意外保",
+      "productIds": "2"
+    },
+    {
+      "detailId": 9,
+      "name": "F码通道",
+      "productIds": "2"
+    }
   ]
 }

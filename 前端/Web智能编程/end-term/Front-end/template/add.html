@@ -4,34 +4,52 @@
  * @Author: 王远昭
  * @Date: 2023-01-05 19:55:09
  * @LastEditors: 王远昭
- * @LastEditTime: 2023-01-09 12:12:37
+ * @LastEditTime: 2023-01-10 13:36:36
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css" />
+    <link href="../style/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../style/css/element-plus.css" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="../script/js/jquery.min.js"></script>
+    <script src="../script/js/axios.min.js"></script>
+    <script src="../script/js/bootstrap.bundle.min.js"></script>
+    <script src="../script/js/vue.global.js"></script>
+    <script src="../script/js/element-plus.full.js"></script>
     <link rel="stylesheet" href="../style/style.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css" />
-<link href="../style/css/bootstrap.min.css" rel="stylesheet">
-<link href="../style/css/element-plus.css" rel="stylesheet">
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<script src="../script/js/jquery.min.js"></script>
-<script src="../script/js/axios.min.js"></script>
-<script src="../script/js/bootstrap.bundle.min.js"></script>
-<!-- <script src="../script/js/vue.global.prod.js"></script> -->
-<script src="../script/js/vue.global.js"></script>
-<script src="../script/js/element-plus.full.js"></script>
-<title>增加商品</title>
+    <title>增加商品</title>
+   
+    <style>
+        .title {
+            text-align: center;
+        }
+
+        .fromcontainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .el-button {
+            width: 10em;
+
+        }
+    </style>
 </head>
+
 <body>
     <div id="app">
         <!-- 导航栏 -->
-        <div>
+        <div class="nav">
             <ul>
-                <li><a href="./index.html">首页</a></li>
+                <li><a href="../index.html">首页</a></li>
                 <li><a href="./add.html">增加</a></li>
                 <li><a href="./delete.html">删除</a></li>
                 <li><a href="./update.html">修改</a></li>
@@ -47,8 +65,73 @@
             </ul>
         </div>
 
-        <el-button type="primary">Primary</el-button>
+        <!-- 标题 -->
+        <h3 class="title mb-4">增加商品</h3>
+        <!-- 表单 -->
+        <div class="fromcontainer">
+            <el-form ref="ruleFormRef" :model="form" :rules="rules" class="demo-ruleForm" label-width="120px"
+                status-icon>
+                <el-form-item label="商品名称" prop="name" style="width: 60vw;">
+                    <el-input v-model="form.name" />
+                </el-form-item>
+                <el-form-item label="商品图片" prop="picture">
+                    <el-upload
+                    ref="uploadFile"
+                    action=""
+                    accept="image/*"
+                    :http-request="uploadAction"
+                    list-type="picture-card" 
+                    :auto-upload="false"
+                    :limit="1"
+                    >
+                        <el-icon class="el-icon--upload">
+                            <ion-icon name="cloud-upload-outline"></ion-icon></el-icon>
+                        <template #tip>
+                            <div class="el-upload__tip">
+                                jpg/png 文件大小需小于
+                                <b>1MB</b>
+                            </div>
+                        </template>
+                    </el-upload>
+                </el-form-item>
+                <el-form-item label="商品类型" prop="type">
+                    <el-select v-model="form.type" placeholder="请选择商品的类型">
+                        <el-option v-for="item in type" :key="item['classification']" :label="item['classification']"
+                            :value="item['classification']" />
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="商品售价" prop="price">
+                    <el-input-number v-model="form.price" :precision="2" :step="0.1" :min="0" />
+                </el-form-item>
+                <el-form-item label="商品库存" prop="inventory">
+                    <el-input-number v-model="form.inventory" :step="1" :min="0" />
+                </el-form-item>
+                <el-form-item label="商品简介" prop="description">
+                    <el-input v-model="form.description" type="textarea" />
+                </el-form-item>
+                <el-form-item label="是否定时上架">
+                    <el-switch v-model="form.timer" />
+                </el-form-item>
+                <el-form-item v-show="form.timer" label="上架时间">
+                    <el-col :span="11">
+                        <el-date-picker v-model="form.date1" type="date" placeholder="选择日期" style="width: 20vw " />
+                    </el-col>
+                    <el-col :span="2" class="text-center">
+                        <span class="text-gray-500"></span>
+                    </el-col>
+                    <el-col :span="11">
+                        <el-time-picker v-model="form.date2" placeholder="选择时间" style="width: 20vw" />
+                    </el-col>
+                </el-form-item>
+                <el-form-item class="jc-center">
+                    <el-button type="primary" @click="onSubmit">提交</el-button>
+                    <el-button @click="resetForm">清空</el-button>
+
+                </el-form-item>
+            </el-form>
+        </div>
     </div>
-    <script src="../script/main.js"></script>
+    <script src="../script/add.js"></script>
 </body>
+
 </html>

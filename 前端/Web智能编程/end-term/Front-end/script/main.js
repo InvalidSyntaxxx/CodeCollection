@@ -4,14 +4,15 @@
  * @Author: 王远昭
  * @Date: 2023-01-05 23:10:46
  * @LastEditors: 王远昭
- * @LastEditTime: 2023-01-07 23:29:22
+ * @LastEditTime: 2023-01-09 23:51:11
  */
 
 const { createApp } = Vue;
 
-createApp({
+const App = {
   data() {
     return {
+      input: "",
       products: [],
       others: [],
     };
@@ -30,10 +31,13 @@ createApp({
     },
     getOther(limit) {
       axios
-        .get("http://localhost:53000/products?productId_gte=" + (limit+1))
+        .get("http://localhost:53000/products?id_gte=" + (limit+1))
         .then((res) => {
           this.others = res.data;
         });
     },
   },
-}).mount("#app");
+}
+const app = Vue.createApp(App);
+app.use(ElementPlus);
+app.mount("#app");
