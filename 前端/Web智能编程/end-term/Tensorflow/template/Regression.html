@@ -1,0 +1,96 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 王远昭
+ * @Date: 2023-01-14 12:02:17
+ * @LastEditors: 王远昭
+ * @LastEditTime: 2023-01-14 12:13:24
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>线性回归</title>
+</head>
+
+<body>
+    <nav>
+        <span><a href="./Classifier.html">图像分类</a></span>
+        <span><a href="./Regression.html">线性回归</a></span>
+    </nav>
+    <h2>使用TensorFlow.js进行线性回归</h2>
+    <h4>点击图像添加数据，算法自动进行回归任务</h4>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+    <!-- 导入 TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js" type="text/javascript"></script>
+    <script>
+        let x_val = [];
+        let y_val = [];
+        let a, b;
+
+        function setup() {
+            createCanvas(300, 300);
+            background(0);
+            a = tf.variable(tf.scalar(random(1)));
+            b = tf.variable(tf.scalar(random(1)));
+        }
+        function predict(x) {
+            let xs = tf.tensor1d((x));
+            let ys = xs.mul(a).add(b);
+            //xs.dispose();
+            return ys;
+        }
+        function loss(pred, labels) {
+            return pred.sub(labels).square().mean();
+        }
+        const LEARNING_RATE = 0.1;
+        const optimizer = tf.train.adagrad(LEARNING_RATE);
+
+        function mousePressed() {
+            let x = map(mouseX, 0, width, 0, 1);
+            let y = map(mouseY, 0, height, 1, 0);
+            x_val.push(x);
+            y_val.push(y);
+        }
+        function draw() {
+
+            if (x_val.length > 0) {
+                let ys = tf.tensor1d((y_val));
+                optimizer.minimize(function () {
+                    return loss(predict(x_val), ys)
+                });
+                ys.dispose();
+            }
+            background(0);
+            stroke(255);
+            strokeWeight(5);
+            for (let i = 0; i < x_val.length; i++) {
+                let px = map(x_val[i], 0, 1, 0, width);
+                let py = map(y_val[i], 0, 1, height, 0);
+                point(px, py);
+            }
+            const xs = [0, 1];
+            tf.tidy(() => {
+                const ys = predict(xs);
+                let x1 = map(xs[0], 0, 1, 0, width);
+                let x2 = map(xs[1], 0, 1, 0, width);
+                //ys.print();
+                let lineY = ys.dataSync();
+                ys.dispose();
+                let y1 = map(lineY[0], 0, 1, height, 0);
+                let y2 = map(lineY[1], 0, 1, height, 0);
+                strokeWeight(2);
+                line(x1, y1, x2, y2);
+            })
+
+
+
+        }
+
+    </script>
+</body>
+
+</html>
