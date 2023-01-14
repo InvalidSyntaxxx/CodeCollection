@@ -4,7 +4,7 @@
  * @Author: 王远昭
  * @Date: 2023-01-05 19:55:09
  * @LastEditors: 王远昭
- * @LastEditTime: 2023-01-10 13:36:36
+ * @LastEditTime: 2023-01-13 16:16:25
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +23,8 @@
     <script src="../script/js/bootstrap.bundle.min.js"></script>
     <script src="../script/js/vue.global.js"></script>
     <script src="../script/js/element-plus.full.js"></script>
+    <script src="//unpkg.com/element-plus/dist/locale/zh-cn"></script>
+    <script src="../script/js/lodash.min.js"></script>
     <link rel="stylesheet" href="../style/style.css">
     <title>增加商品</title>
    
@@ -39,7 +41,6 @@
 
         .el-button {
             width: 10em;
-
         }
     </style>
 </head>
@@ -110,17 +111,17 @@
                     <el-input v-model="form.description" type="textarea" />
                 </el-form-item>
                 <el-form-item label="是否定时上架">
-                    <el-switch v-model="form.timer" />
+                    <el-switch v-model="form.onShelves" />
                 </el-form-item>
-                <el-form-item v-show="form.timer" label="上架时间">
+                <el-form-item v-show="form.onShelves" label="上架时间">
                     <el-col :span="11">
-                        <el-date-picker v-model="form.date1" type="date" placeholder="选择日期" style="width: 20vw " />
+                        <el-date-picker v-model="form.date" type="date" value-format="YYYY-MM-DD" placeholder="选择日期" style="width: 20vw " />
                     </el-col>
                     <el-col :span="2" class="text-center">
                         <span class="text-gray-500"></span>
                     </el-col>
                     <el-col :span="11">
-                        <el-time-picker v-model="form.date2" placeholder="选择时间" style="width: 20vw" />
+                        <el-time-picker v-model="form.time"  type="time" value-form="HH:mm:ss" placeholder="选择时间" style="width: 20vw" />
                     </el-col>
                 </el-form-item>
                 <el-form-item class="jc-center">

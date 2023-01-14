@@ -4,7 +4,7 @@
  * @Author: 王远昭
  * @Date: 2023-01-05 19:55:16
  * @LastEditors: 王远昭
- * @LastEditTime: 2023-01-10 13:36:26
+ * @LastEditTime: 2023-01-14 01:21:05
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +23,8 @@
     <script src="../script/js/bootstrap.bundle.min.js"></script>
     <script src="../script/js/vue.global.js"></script>
     <script src="../script/js/element-plus.full.js"></script>
+    <script src="../script/js/lodash.min.js"></script>
+    <script src="//unpkg.com/element-plus/dist/locale/zh-cn"></script>
     <link rel="stylesheet" href="../style/style.css">
     <title>删除商品</title>
 </head>
@@ -48,9 +50,97 @@
             </ul>
         </div>
 
-        <!-- 删除表单 -->
-        
+        <!-- 表单 -->
+        <div class="maintable">
+            <div class="maincontainer">
+                <div class="tableTop">
+                    <el-autocomplete v-model="searchValue" :fetch-suggestions="querySearch" @select="handleSearch" clearable placeholder="请输入编号或商品名称"
+                        style="width:300px" class="mb-3"></el-autocomplete>
+                      
+                    <el-button type="primary" size="mini" @click="handleSearch" >搜索</el-button>
+                </div>
+
+                <el-table v-loading="loading" :data="container['tableData']" height="360" table-layout="fixed" stripe>
+                    <el-table-column prop="id" label="编号" align="center"></el-table-column>
+                    <el-table-column prop="name" label="商品名称" align="center"></el-table-column>
+                    <el-table-column label="商品略缩图" align="center">
+                        <template #default="scope">
+                            <el-image style="width: 100px; height: 100px" :src="rootImage+scope.row.img"
+                                :zoom-rate="1.2" :initial-index="4" fit="cover" />
+
+                        </template>
+                    </el-table-column>
+                    <el-table-column prop="type" label="商品类型" align="center"></el-table-column>
+                    <el-table-column prop="price" label="售价" align="center"></el-table-column>
+                    <el-table-column prop="inventory" label="库存量" align="center"></el-table-column>
+                    <el-table-column prop="description" label="商品简介" align="center"></el-table-column>
+                    <el-table-column prop="date" label="上架时间" align="center"></el-table-column>
+                    <el-table-column fixed="right" label="操作" width="150">
+                        <template #default="scope">
+                            <el-button type="primary" size="small" @click="handleUpdate(scope.$index)">修改</el-button>
+                            <el-button type="danger" size="small" @click="handleDelete(scope.$index)">删除</el-button>
+                        </template>
+                    </el-table-column>
+                </el-table>
+
+                <!-- 修改商品信息 -->
+                <el-dialog v-model="UpdateTableVisible" title="修改商品信息">
+                    <el-form ref="ruleFormRef" :model="form" :rules="rules" class="demo-ruleForm" label-width="120px"
+                        status-icon>
+                        <el-form-item label="商品名称" prop="name" >
+                            <el-input v-model="form.name" />
+                        </el-form-item>
+                        <el-form-item label="商品图片" prop="picture">
+                            <el-upload 
+                            ref="uploadFile" 
+                            action="" 
+                            accept="image/*" 
+                            :http-request="uploadAction"
+                            v-model:file-list="originImage"
+                            list-type="picture-card" 
+                            :auto-upload="false" 
+                            :limit="1">
+                                <el-icon class="el-icon--upload">
+                                    <ion-icon name="cloud-upload-outline"></ion-icon></el-icon>
+                                <template #tip>
+                                    <div class="el-upload__tip">
+                                        仅限<b>一张</b>商品图 文件大小需小于
+                                        <b>1MB</b>
+                                    </div>
+                                </template>
+                            </el-upload>
+                        </el-form-item>
+                        <el-form-item label="商品类型" prop="type">
+                            <el-select v-model="form.type" placeholder="请选择商品的类型">
+                                <el-option v-for="item in type" :key="item['classification']"
+                                    :label="item['classification']" :value="item['classification']" />
+                            </el-select>
+                        </el-form-item>
+                        <el-form-item label="商品售价" prop="price">
+                            <el-input-number v-model="form.price" :precision="2" :step="0.1" :min="0" />
+                        </el-form-item>
+                        <el-form-item label="商品库存" prop="inventory">
+                            <el-input-number v-model="form.inventory" :step="1" :min="0" />
+                        </el-form-item>
+                        <el-form-item label="商品简介" prop="description">
+                            <el-input v-model="form.description" type="textarea" />
+                        </el-form-item>
+                        <el-form-item >
+                            <el-button type="primary" @click="onUpdate(this.id)" :value="id">更新</el-button>   
+                        </el-form-item>
+                    </el-form>
+                </el-dialog>
+                <div style="display:flex;justify-content:center; align-items:center;">
+                    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                        :current-page="container['currentPage']" :page-sizes="[4,6,8]"
+                        :page-size="container['pageSize']" layout="total,  sizes, prev, pager, next,                              jumper"
+                        :total="container['totalItems']"></el-pagination>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script src="../script/delete.js"></script>
 </body>
 
 </html>

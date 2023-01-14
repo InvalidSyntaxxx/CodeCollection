@@ -4,7 +4,7 @@
  * @Author: 王远昭
  * @Date: 2023-01-05 23:10:46
  * @LastEditors: 王远昭
- * @LastEditTime: 2023-01-10 13:19:09
+ * @LastEditTime: 2023-01-13 23:08:04
  */
 
 // 导入组件
@@ -12,7 +12,7 @@ const { createApp } = Vue;
 const { ElMessage } = ElementPlus;
 
 // 前端表单验证规则
-const rules = {
+ const rules = {
   name: [{ required: true, message: "请输入商品名称", trigger: "blur" }],
   picture: [
     {
@@ -47,7 +47,7 @@ const rules = {
     { type:'number',min: 0, message: "库存量需大于0", trigger: "blur" },
   ],
   description: [{ required: true, message: "请输入商品简介", trigger: "blur" }],
-  date1: [
+  date: [
     {
       type: "date",
       required: true,
@@ -55,7 +55,7 @@ const rules = {
       trigger: "change",
     },
   ],
-  date2: [
+  time: [
     {
       type: "date",
       required: true,
@@ -75,9 +75,9 @@ const App = {
         type: "",
         price: "",
         inventory: "",
-        date1: "",
-        date2: "",
-        timer: false,
+        date: "",
+        time: "",
+        onShelves: false,
         description: "",
         see: "0",
         love: "0",
@@ -117,19 +117,23 @@ const App = {
     },
     async uploadAction(e){
         let param = new FormData();
-        
         param.append('file', e.file);
         let res = await this.$http.post(`http://localhost:5500/Front-end/data/img/`, param);
         
     },
     onSubmit() {
-        
       if (!this.$refs.ruleFormRef) return;
       this.$refs.ruleFormRef.validate((valid) => {
         if (valid) {
           let url = 'http://localhost:53000/products'
-          this.postProduct(this.form,url);
+          // ts= new Date(Date.parse(this.form['date']))
+          // year = ts.getFullYear()
+          // month = ts.getMonth()+1
+          // day = ts.getDate()
+          // this.form['date']= year +"年"+month+"月"+day+"日"
+          // alert(JSON.stringify(_.omit(this.form,['date','time'])))
           
+          this.postProduct(this.form,url);
         } else {
           console.log("error submit!");
           return false;
@@ -143,5 +147,7 @@ const App = {
   },
 };
 const app = Vue.createApp(App);
-app.use(ElementPlus);
+app.use(ElementPlus,{
+  locale: ElementPlusLocaleZhCn,
+});
 app.mount("#app");

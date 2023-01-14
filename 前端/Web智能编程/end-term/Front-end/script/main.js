@@ -4,7 +4,7 @@
  * @Author: 王远昭
  * @Date: 2023-01-05 23:10:46
  * @LastEditors: 王远昭
- * @LastEditTime: 2023-01-09 23:51:11
+ * @LastEditTime: 2023-01-13 11:20:44
  */
 
 const { createApp } = Vue;
@@ -39,5 +39,7 @@ const App = {
   },
 }
 const app = Vue.createApp(App);
-app.use(ElementPlus);
+app.use(ElementPlus,{
+  locale: ElementPlusLocaleZhCn,
+});
 app.mount("#app");
