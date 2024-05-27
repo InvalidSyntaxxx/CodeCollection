@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-05-27T11:23:18.110Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0" etag="LTttZprD9DggpcToYSkK" version="24.4.8" type="github">
+<mxfile host="app.diagrams.net" modified="2024-05-27T13:01:29.077Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0" etag="SjqWz6ZSiWrHvTIdI8Tg" version="24.4.8" type="github">
   <diagram name="第 1 页" id="7eiAGlhokpOFbFWezHT-">
     <mxGraphModel dx="834" dy="2055" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -262,19 +262,19 @@
           <mxGeometry x="2032" y="955" width="180" height="50" as="geometry" />
         </mxCell>
         <mxCell id="6zSR9lrW0eEH2U1vSe3f-121" value="预训练" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
-          <mxGeometry x="1511.5" y="935" width="180" height="50" as="geometry" />
+          <mxGeometry x="1484.5" y="935" width="180" height="50" as="geometry" />
         </mxCell>
         <mxCell id="6zSR9lrW0eEH2U1vSe3f-122" value="预训练" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
-          <mxGeometry x="1521.5" y="945" width="180" height="50" as="geometry" />
+          <mxGeometry x="1508.5" y="945" width="180" height="50" as="geometry" />
         </mxCell>
         <mxCell id="6zSR9lrW0eEH2U1vSe3f-123" value="预训练" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=15;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
           <mxGeometry x="1531.5" y="955" width="180" height="50" as="geometry" />
         </mxCell>
         <mxCell id="6zSR9lrW0eEH2U1vSe3f-125" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;rotation=-90;" vertex="1" parent="1">
-          <mxGeometry x="1597" y="945" width="24" height="193" as="geometry" />
+          <mxGeometry x="1581.25" y="930.75" width="24" height="221.5" as="geometry" />
         </mxCell>
         <mxCell id="6zSR9lrW0eEH2U1vSe3f-126" value="分布式" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="1">
-          <mxGeometry x="1540" y="1055" width="130.25" height="64" as="geometry" />
+          <mxGeometry x="1527" y="1055" width="130.25" height="64" as="geometry" />
         </mxCell>
         <mxCell id="6zSR9lrW0eEH2U1vSe3f-129" value="&lt;div style=&quot;font-size: 15px;&quot;&gt;应用模型&lt;/div&gt;（ChatGPT、文心一言）" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="2224" y="607" width="173" height="133" as="geometry" />
